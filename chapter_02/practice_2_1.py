@@ -5,10 +5,9 @@ def calculate_age():
     return calculate
 
 def my_age():
-    age = int(input("Укажите свой год рождения: "))
-
     while True:
         try:
+            age = int(input("Укажите свой год рождения: "))
             if age < 1800:
                 print("Вряд ли вы столь стары!")
                 continue
