@@ -74,18 +74,11 @@ def p_hobby():
         except ValueError:
             print("Не правильный формат!\n")
 
-# Вспомогательная функция вычисления возраста
-def p_calc_birth_year():
-    year = p_birth_year()
-
-    age = 2026 - year
-    return age
-
 # Система запуска + сообщение
 def main():
     name = p_name()
     last_name = p_last_name()
-    age = p_calc_birth_year()
+    age = p_birth_year()
     like_color = p_like_color()
     live_country = p_live_country()
     hobby = p_hobby()
