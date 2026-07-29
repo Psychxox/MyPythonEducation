@@ -1,87 +1,60 @@
 # Получаем данные
-def p_name():
+def get_name():
+    while True:
+        name = input("Введите ваше имя: ").strip()
+        if not name:
+            print("Имя не может быть пустым. Попробуйте снова.")
+            continue
+        if len(name) > 15:
+            print("Имя не должно превышать 15 символов. Попробуйте снова.")
+            continue
+        return name
+
+def get_surname():
+    while True:
+        surname = input("Введите вашу фамилию: ").strip()
+        if not surname:
+            print("Фамилия не может быть пустой. Попробуйте снова.")
+            continue
+        if len(surname) > 25:
+            print("Фамилия не должна превышать 25 символов. Попробуйте снова.")
+            continue
+        return surname
+
+def get_age():
     while True:
         try:
-
-            name = input("Введите ваше имя: ")
-            if len(name) > 15:
-                print(f"Вас точно зовут {name}?")
-                continue
-            if len(name) < 1:
-                print(f"Вас точно зовут: {name}?")
-                continue
-
-            return name
-        except ValueError:
-            print("Не правильный формат!\n")
-
-def p_last_name():
-    while True:
-        try:
-
-            last_name = input("Введите вашу фамилию: ")
-            if len(last_name) > 25:
-                print(f"Ваша фамилия точно {last_name}?")
-                continue
-
-            return last_name
-        except ValueError:
-            print("Не правильный формат!\n")
-
-def p_birth_year():
-    while True:
-        try:
-            
             birth_year = int(input("Введите ваш год рождения: "))
-
             if birth_year > 2026:
-                print(f"Вряд ли вы родились в {birth_year} году.")
+                print("Вы ещё не родились? Попробуйте снова.")
                 continue
-
-            age = 2026 - birth_year
-
-            return age
+            if birth_year < 1900:
+                print("Проверьте год рождения. Попробуйте снова.")
+                continue
+            return 2026 - birth_year
         except ValueError:
-            print("Не правильный формат!\n")
+            print("Год рождения должен быть числом. Попробуйте снова.")
 
-def p_like_color():
-    while True:
-        try:
+def get_favorite_color():
+    color = input("Введите ваш любимый цвет: ").strip()
+    return color if color else "Не указан"
 
-            like_color = input("Введите ваш любимый цвет: ")
-            return like_color
+def get_city():
+    city = input("Введите город вашего проживания: ").strip()
+    return city if city else "Не указан"
 
-        except ValueError:
-            print("Не правильный формат!\n")
-
-def p_live_country():
-    while True:
-        try:
-
-            live_country = input("Введите город вашего проживания: ")
-
-            return live_country
-        except ValueError:
-            print("Не правильный формат!\n")
-
-def p_hobby():
-    while True:
-        try:
-
-            hobby = input("Введите ваше хобби: ")
-
-            return hobby
-        except ValueError:
-            print("Не правильный формат!\n")
+def get_hobby():
+    hobby = input("Введите ваше хобби: ").strip()
+    return hobby if hobby else "Не указано"
 
 # Система запуска + сообщение
 def main():
-    name = p_name()
-    last_name = p_last_name()
-    age = p_birth_year()
-    like_color = p_like_color()
-    live_country = p_live_country()
-    hobby = p_hobby()
+    name = get_name()
+    last_name = get_surname()
+    age = get_age()
+    like_color = get_favorite_color()
+    live_country = get_city()
+    hobby = get_hobby()
 
     print("\nВаш профиль\n" + "=" * 50 + f"\nВаше имя: {name}\nВаша фамилия: {last_name}\nВаш возраст: {age}\nВаш любимый цвет: {like_color}\nВаш город проживания: {live_country}\nВаше хобби: {hobby}\n" + "=" * 50 + "\nОтличный профиль!\n")
 
