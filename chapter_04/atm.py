@@ -18,7 +18,7 @@ def withdraw():
                 print("Сумма должна быть положительной!")
                 continue
             
-            if amount > TOTAL:
+            elif amount > TOTAL:
                 print(f"Недостаточно средств на карте! На карте: {TOTAL} руб.")
                 continue
             
@@ -44,7 +44,7 @@ def deposit():
                 print("Сумма должна быть положительной!")
                 continue
             
-            if amount > BALANCE:
+            elif amount > BALANCE:
                 print(f"Недостаточно наличных! У вас: {BALANCE} руб.")
                 continue
             

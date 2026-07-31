@@ -11,7 +11,7 @@ def get_mood():
         print("Надеюсь, у тебя всё хорошо!")
         return
 
-def main():
+def answer():
     print("=" * 50)
     print("🤖  МОЙ ПЕРСОНАЛЬНЫЙ ПОМОЩНИК")
     print("=" * 50)
@@ -29,6 +29,70 @@ def main():
     get_mood()
 
     print("=" * 50)
+
+def calculate():
+    while True:
+        try:
+
+            get_number = int(input("Введите первое число: "))
+            action = input("Введите действие (+, -, *, /): ")
+            get_number2 = int(input("Введите второе число: "))
+
+            # Обработка ошибок кулькулятора
+            if action == "/" and get_number2 == 0:
+                print("Ошибка! Деление на ноль невозможно.")
+                continue
+            elif action not in ("+", "-", "*", "/"):
+                print("Для действия нужно ввести только \"+\", \"-\", \"*\", \"/\"")
+                continue
+
+            # Выполнение действий
+            elif action == "+":
+                result = get_number + get_number2
+                print(f"Получившийся результат: {result}")
+                break
+            elif action == "/":
+                result = get_number / get_number2
+                print(f"Получившийся результат: {result}")
+                break
+            elif action == "*":
+                result = get_number * get_number2
+                print(f"Получившийся результат: {result}")
+                break
+            elif action == "-":
+                result = get_number - get_number2
+                print(f"Получившийся результат: {result}")
+                break
+
+        except ValueError:
+            print("Для чисел нужно ввести только цифры!")
+
+def menu():
+    print("Добро пожаловать в помощника!")
+
+    while True:
+        try:
+            print("=" * 50 + "\nВыбери действие из меню:\n1. Калькулятор\n2. Показать настройки\n3. Выйти из помощника\n" + "=" * 50 + "\n")
+
+            command = int(input("\nВведите номер команды из меню: "))
+
+            if command == 1:
+                print("Открываю кулькулятор!\n")
+                calculate()
+            elif command == 2:
+                print("Открываю настройки!\n")
+                print("Настройки пока не реализованы")
+                continue
+            elif command == 3:
+                print("До свидания!")
+                break
+
+        except ValueError:
+            print("Ошибка! Введите число.")
+
+def main():
+    answer()
+    menu()
 
 if __name__ == "__main__":
     main()
